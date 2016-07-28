@@ -48,12 +48,15 @@ const char lua_ident[] =
 
 static TValue *index2adr (lua_State *L, int idx) {
   if (idx > 0) {
+    //索引为正值时 通过base取得value
     TValue *o = L->base + (idx - 1);
     api_check(L, idx <= L->ci->top - L->base);
+    //如果超过top 则返回nil 否则返回o 
     if (o >= L->top) return cast(TValue *, luaO_nilobject);
     else return o;
   }
   else if (idx > LUA_REGISTRYINDEX) {
+    //正常的小于0的索引 则通过top+idx取得对象
     api_check(L, idx != 0 && -idx <= L->top - L->base);
     return L->top + idx;
   }
