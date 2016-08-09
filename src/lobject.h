@@ -55,6 +55,10 @@ typedef struct GCheader {
 
 /*
 ** Union of all Lua values
+* gc 表示需要垃圾回收的一些值，比如string、table等等
+* p 表示light userdata 它是不会被回收的
+* n 表示double
+* b 表示boolean
 */
 typedef union {
   GCObject *gc;
@@ -66,6 +70,7 @@ typedef union {
 
 /*
 ** Tagged Values
+*  tt表示类型  value为lua中的对象
 */
 
 #define TValuefields	Value value; int tt

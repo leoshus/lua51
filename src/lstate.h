@@ -96,6 +96,12 @@ typedef struct global_State {
 
 /*
 ** `per thread' state
+** lua_State 表示一个lua虚拟机 它是per-thread的，也就是一个协程(多个和lua交互的c程序会有多个lua_State)一个lua_State
+* StkId top 表示在这个栈上的第一个空闲的slot
+* StkId base 表示当前所在函数的base  这个base可以说是栈底 只不过是当前函数的
+* StkId stack_last 表示这个栈上最后一个空闲的slot
+* StkId stack 表示整个栈的栈底
+* StkId 是一个TValue类型的指针
 */
 struct lua_State {
   CommonHeader;
@@ -135,12 +141,12 @@ struct lua_State {
 */
 union GCObject {
   GCheader gch;
-  union TString ts;
-  union Udata u;
-  union Closure cl;
-  struct Table h;
-  struct Proto p;
-  struct UpVal uv;
+  union TString ts;/*string*/
+  union Udata u;/*user data*/
+  union Closure cl;/*闭包*/
+  struct Table h;/*表*/
+  struct Proto p;/*函数*/
+  struct UpVal uv;/*upvalue*/
   struct lua_State th;  /* thread */
 };
 
