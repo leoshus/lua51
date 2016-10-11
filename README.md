@@ -38,7 +38,8 @@ See HISTORY for a summary of changes since the last released version.
 
 ###虚拟机运转核心功能
 
-|--|--|
+|文件名|描述|
+|---|---|
 |lapi.c  |C语言接口|
 |lctype.c |C 标准库中ctype相关实现|
 |ldebug.c|Debug接口|
@@ -57,7 +58,8 @@ See HISTORY for a summary of changes since the last released version.
 
 ###源代码解析以及预编译字节码
 
-|--|--|
+|文件名|描述|
+|---|---|
 |lcode.c|代码生成器|
 |ldump.c|序列化预编译的lua字节码|
 |llex.c|词法分析器|
@@ -66,7 +68,8 @@ See HISTORY for a summary of changes since the last released version.
 
 ###内嵌库
 
-|--|--|
+|文件名|描述|
+|---|---|
 |lauxlib.c|库编写用到的辅助函数库|
 |lbaselib.c|基础库|
 |lbitlib.c|位操作库|
@@ -82,6 +85,7 @@ See HISTORY for a summary of changes since the last released version.
 
 ###可执行的解析器、字节码编译器
 
-|--|--|
+|文件名|描述|
+|---|---|
 |lua.c|解释器|
 |luac.c|字节码编译器|
